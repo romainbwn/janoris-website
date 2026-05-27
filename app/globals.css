@@ -1,26 +1,193 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Hero — clean warm ivory, lifted and bright (no sepia) */
+  --paper: #f8f2e6;
+  --paper-lit: #fdf9f0;
+  --paper-deep: #efe4cc;
+
+  /* The Sound — deep Riviera navy */
+  --midnight: #123a63;
+  --midnight-lit: #1f5a86;
+
+  /* Where the Music Happens — soft sunset peach */
+  --peach: #fbdcc7;
+  --peach-lit: #fdeadb;
+
+  /* Ink on the light grounds — warm charcoal, not brown */
+  --ink: #231f1c;
+  --ink-soft: #423b35;
+  --muted: #645f57; /* neutral warm grey, never sepia */
+
+  /* Light text on the blue */
+  --cream: #f7f1e0;
+  --cream-soft: #aec2d4;
+
+  /* Accents — richer, more saturated, Mediterranean */
+  --rouge: #c23b27; /* vivid warm curtain red */
+  --coral: #ef6d42; /* bright sunset coral */
+  --blue: #1f86b3; /* Mediterranean sea blue */
+  --gold: #f0b765; /* warm sunset gold, on the blue */
+
+  /* Hairlines — light, clean, no beige weight */
+  --line: #e7dcc6; /* on ivory */
+  --line-peach: #eecbb0; /* on peach */
+
+  /* the margin that frames the page as an object */
+  --frame: clamp(0.9rem, 1.9vw, 2rem);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-midnight: var(--midnight);
+  --color-midnight-lit: var(--midnight-lit);
+  --color-peach: var(--peach);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-cream: var(--cream);
+  --color-cream-soft: var(--cream-soft);
+  --color-rouge: var(--rouge);
+  --color-coral: var(--coral);
+  --color-blue: var(--blue);
+  --color-gold: var(--gold);
+  --color-line: var(--line);
+  --color-line-peach: var(--line-peach);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-dm-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-fraunces), "Times New Roman", serif;
+  font-optical-sizing: auto;
+}
+
+/* The wordmark — confident, grounded, no wonk */
+.wordmark {
+  font-family: var(--font-fraunces), "Times New Roman", serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+}
+
+/* Hero — clean Riviera light: a bright pool top-right, a faint coral
+   warmth bottom-left, a whisper of sea-blue. No dark vignette. */
+.atm-hero {
+  background:
+    radial-gradient(
+      56% 48% at 84% 10%,
+      var(--paper-lit) 0%,
+      rgba(253, 249, 240, 0) 62%
+    ),
+    radial-gradient(
+      66% 58% at 5% 104%,
+      rgba(239, 109, 66, 0.11) 0%,
+      rgba(239, 109, 66, 0) 60%
+    ),
+    radial-gradient(
+      58% 50% at 97% 92%,
+      rgba(31, 134, 179, 0.08) 0%,
+      rgba(31, 134, 179, 0) 64%
+    );
+}
+
+/* The Sound — a blue-violet glow with a warm beam, rising through
+   the Riviera navy */
+.atm-sound {
+  background:
+    radial-gradient(
+      58% 52% at 20% 12%,
+      rgba(132, 150, 228, 0.36) 0%,
+      rgba(132, 150, 228, 0) 66%
+    ),
+    radial-gradient(
+      54% 50% at 94% 6%,
+      rgba(240, 145, 86, 0.16) 0%,
+      rgba(240, 145, 86, 0) 60%
+    ),
+    radial-gradient(
+      66% 58% at 90% 108%,
+      rgba(31, 90, 134, 0.72) 0%,
+      rgba(31, 90, 134, 0) 64%
+    );
+}
+
+/* Where the Music Happens — bright peach light, a coral warmth and a
+   faint sea-blue note */
+.atm-celebration {
+  background:
+    radial-gradient(
+      64% 54% at 50% -12%,
+      var(--peach-lit) 0%,
+      rgba(253, 234, 219, 0) 62%
+    ),
+    radial-gradient(
+      56% 48% at 92% 106%,
+      rgba(239, 109, 66, 0.2) 0%,
+      rgba(239, 109, 66, 0) 64%
+    ),
+    radial-gradient(
+      52% 46% at 4% 96%,
+      rgba(31, 134, 179, 0.14) 0%,
+      rgba(31, 134, 179, 0) 66%
+    );
+}
+
+/* Editorial link — a hairline that grows from the left on hover */
+.ed-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.2em;
+}
+.ed-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(var(--ul, 0));
+  transform-origin: left;
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ed-link:hover::after,
+.ed-link:focus-visible::after {
+  --ul: 1;
+}
+/* primary link carries a quiet rouge rule at rest */
+.ed-link-primary::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--rouge);
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ed-link::after {
+    transition: none;
+  }
 }
