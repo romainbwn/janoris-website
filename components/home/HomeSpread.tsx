@@ -276,11 +276,18 @@ export function HomeSpread() {
               ))}
             </motion.div>
 
-            {/* contact — bottom-right */}
+            {/* contact — bottom-right, logo bottom-left */}
             <motion.div
               {...inView}
-              className="mt-[clamp(3rem,7vh,5rem)] flex justify-end border-t border-line-peach pt-8"
+              className="mt-[clamp(3rem,7vh,5rem)] flex items-center justify-between gap-6 border-t border-line-peach pt-8"
             >
+              <Image
+                src="/janoris-logo.png"
+                alt="Janoris"
+                width={88}
+                height={88}
+                className="h-[64px] w-[64px] shrink-0 sm:h-[80px] sm:w-[80px] md:h-[96px] md:w-[96px]"
+              />
               <div className="grid grid-cols-[auto_auto] gap-x-8 gap-y-3.5 text-right sm:gap-x-12">
                 <p className="col-span-2 text-[0.62rem] uppercase tracking-[0.32em] text-rouge">
                   Contact
