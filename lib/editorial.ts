@@ -18,5 +18,5 @@ export const colors = {
  *  the wedding frame is used as shot. */
 export const heroImage = "/images/janoris-hero-graded.jpg";
 export const soundImage = "/images/purple-dj.jpg";
-export const celebrationImage = "/images/crowd wedding.png";
+export const celebrationImage = "/images/wedding crowd.JPG";
 export const aboutImage = "/images/janoris-about.jpg";
