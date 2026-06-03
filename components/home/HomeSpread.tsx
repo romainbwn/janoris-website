@@ -4,7 +4,12 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { FilmGrain } from "@/components/ui/FilmGrain";
 import { SiteNav } from "@/components/ui/SiteNav";
-import { celebrationImage, heroImage, soundImage } from "@/lib/editorial";
+import {
+  celebrationImage,
+  heroImage,
+  kindWordsImage,
+  soundImage,
+} from "@/lib/editorial";
 import { fadeUp, imageReveal, stagger } from "@/lib/motion";
 import { site } from "@/lib/site";
 
@@ -276,10 +281,83 @@ export function HomeSpread() {
               ))}
             </motion.div>
 
-            {/* contact — bottom-right, logo bottom-left */}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ kind words — social proof ═══════════ */}
+      <section className="relative z-10 isolate overflow-hidden bg-paper">
+        <div className="relative z-10 px-1 py-[clamp(4rem,10vh,7rem)] md:px-2">
+          <div className="mx-auto max-w-[62rem]">
+            <div className="lg:grid lg:grid-cols-[20rem_1fr] lg:items-start lg:gap-x-[clamp(2.5rem,5vw,4.5rem)]">
+              {/* portrait — Romain at a wedding, the proof */}
+              <motion.figure
+                {...inViewImage}
+                className="relative aspect-[3/4] w-full max-w-[18.5rem] overflow-hidden ring-1 ring-ink/10 shadow-[0_22px_50px_-28px_rgba(31,58,99,0.45)] lg:max-w-none"
+              >
+                <Image
+                  src={kindWordsImage}
+                  alt={site.kindWords.portraitAlt}
+                  fill
+                  quality={90}
+                  sizes="(max-width: 1024px) 76vw, 320px"
+                  className="object-cover object-[52%_38%]"
+                />
+              </motion.figure>
+
+              {/* heading + stacked testimonial cards */}
+              <div className="mt-[clamp(2.25rem,5vh,3rem)] lg:mt-0">
+                <motion.h2
+                  {...inView}
+                  className="font-display text-[clamp(2.1rem,4.6vw,3.4rem)] font-medium leading-[1.05] tracking-[-0.015em] text-ink"
+                >
+                  {site.kindWords.heading}
+                </motion.h2>
+
+                <motion.div
+                  {...inView}
+                  className="mt-[clamp(1.75rem,4vh,2.5rem)] flex flex-col gap-5"
+                >
+                  {site.kindWords.testimonials.map((t) => (
+                    <article
+                      key={t.author + t.year + t.quote.slice(0, 14)}
+                      className="border border-line p-7 md:p-8"
+                    >
+                      <div
+                        role="img"
+                        aria-label="5 out of 5 stars"
+                        className="flex gap-[0.32em] text-[0.85rem] text-coral"
+                      >
+                        <span aria-hidden>★</span>
+                        <span aria-hidden>★</span>
+                        <span aria-hidden>★</span>
+                        <span aria-hidden>★</span>
+                        <span aria-hidden>★</span>
+                      </div>
+                      <blockquote className="mt-4">
+                        <p className="font-display text-[1rem] leading-[1.65] text-ink md:text-[1.05rem]">
+                          &ldquo;{t.quote}&rdquo;
+                        </p>
+                        <footer className="mt-4 text-[0.85rem] text-ink-soft">
+                          — {t.author}, {t.location} · {t.year}
+                        </footer>
+                      </blockquote>
+                    </article>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ contact — quiet end-of-page signature ═══════════ */}
+      <section className="relative z-10 isolate overflow-hidden bg-paper">
+        <div className="relative z-10 px-1 pb-[clamp(3rem,7vh,4.5rem)] pt-[clamp(2rem,5vh,3rem)] md:px-2">
+          <div className="mx-auto max-w-[46rem]">
             <motion.div
               {...inView}
-              className="mt-[clamp(3rem,7vh,5rem)] flex items-center justify-between gap-6 border-t border-line-peach pt-8"
+              className="flex items-center justify-between gap-6 border-t border-line pt-8"
             >
               <Image
                 src="/janoris-logo.png"

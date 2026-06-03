@@ -20,3 +20,4 @@ export const heroImage = "/images/janoris-hero-graded.jpg";
 export const soundImage = "/images/purple-dj.jpg";
 export const celebrationImage = "/images/wedding crowd.JPG";
 export const aboutImage = "/images/janoris-about.jpg";
+export const kindWordsImage = "/images/wedding me.PNG";

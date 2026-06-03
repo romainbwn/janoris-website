@@ -60,6 +60,36 @@ export const site = {
     href: "https://www.mixcloud.com/janoris/",
   },
 
+  /* kind words — testimonials, social proof */
+  kindWords: {
+    heading: "Kind Words",
+    portraitAlt:
+      "JANORIS in a tuxedo behind the decks at a wedding under string lights",
+    testimonials: [
+      {
+        quote:
+          "Romain was fantastic to work with. He went above and beyond with what I asked for and really understood what I was trying to achieve. I would have no hesitation in working with him again.",
+        author: "Jessica",
+        location: "Australia",
+        year: "2025",
+      },
+      {
+        quote:
+          "Romain was phenomenal. He went above and beyond what he was hired to do. I’ll definitely hire him again.",
+        author: "Pip",
+        location: "Australia",
+        year: "2025",
+      },
+      {
+        quote:
+          "Romain did a fantastic job. He is reliable and communicated really well throughout the project. I highly recommend him and look forward to working with him again in the future.",
+        author: "Client",
+        location: "Australia",
+        year: "2025",
+      },
+    ],
+  },
+
   /* contact block */
   contact: {
     email: "janoris.music@gmail.com",
