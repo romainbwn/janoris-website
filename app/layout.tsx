@@ -17,7 +17,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "JANORIS — French DJ for private events, venues & clubs",
+  title: "JANORIS — French DJ for Private Events & Venues",
   description:
     "French DJ for private events, venues and clubs. House, open-format and timeless party music shaped into warm, atmosphere-driven nights.",
 };
